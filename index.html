@@ -1,1 +1,46 @@
-Hello World
+<!doctype html>
+<html lang="en-US">
+    <head>
+
+        <title>Hello Echo</title>
+
+<!--        <script>-->
+<!--            function getParams() {-->
+<!--                var idx = document.URL.indexOf('?');-->
+<!--                var params = new Array();-->
+<!--                if (idx != -1) {-->
+<!--                    var pairs = document.URL.substring(idx+1, document.URL.length).split('&');-->
+<!--                    for (var i=0; i<pairs.length; i++) {-->
+<!--                        nameVal = pairs[i].split('=');-->
+<!--                        params[nameVal[0]] = nameVal[1];-->
+<!--                    }-->
+<!--                }-->
+<!--                return params;-->
+<!--            }-->
+<!--            params = getParams();-->
+<!--        </script>-->
+    </head>
+
+    <body>
+        <h2>Echo</h2>
+        <p>
+            Hello: <span id="name"></span> @<span id="datetime">/</span>
+        </p>
+
+
+        <script>
+            const queryString = window.location.search;
+            const urlParams = new URLSearchParams(queryString);
+            const caller = urlParams.get('name');
+            document.getElementById("name").innerHTML = caller;
+
+            var now = new Date();
+            var datetime = now.toLocaleString();
+
+            document.getElementById("datetime").innerHTML = datetime;
+        </script>
+    </body>
+
+</html>
+
+
